@@ -1,0 +1,151 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: good_bye
+  - action: utter_good_bye
+
+- rule: out_of_scope
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+
+- rule: BookAppointment_Yes
+  steps:
+  - intent: affirm
+  - action: utter_appointment_yes
+
+- rule: BookAppointment_No
+  steps:
+  - intent: deny
+  - action: utter_appointment_no
+ 
+- rule: allergic reaction to drugs yes
+  steps:
+  - intent: affirm1
+  - action: utter_allergic_reactions_yes
+
+- rule: allergic reaction to drugs no
+  steps:
+  - intent: deny1
+  - action: utter_covid_symptoms
+  - active_loop: null
+
+- rule: covid symptoms yes
+  steps:
+  - intent: affirm2
+  - action: utter_covid_symptoms_yes
+
+- rule: covid symptoms no
+  steps:
+  - intent: deny2
+  - action: utter_contact_history
+  - active_loop: null
+
+- rule: doctor consultation yes
+  steps:
+  - intent: affirm3
+  - action: utter_consultation_yes
+
+- rule: doctor consultation no
+  steps:
+  - intent: deny3
+  - action: utter_appointment
+  - active_loop: null
+
+- rule: Activate form
+  steps:
+  - intent: mobile_no
+  - action: utter_covid_vaccination
+  - active_loop: mob_no_form
+
+- rule: Activate form
+  steps:
+  - intent: user_info
+  - slot_was_set: 
+    - user_chk: false
+  - action: utter_covid_vaccination
+  - active_loop: user_info_form
+
+- rule: Activate form
+  steps:
+  - intent: vaccine_dose
+  - slot_was_set: 
+    - user_chk: true
+  - action: utter_diseases_on_medication
+  - active_loop: vaccine_dose_form
+
+- rule: Activate form
+  steps:
+  - intent: diseases_on_medication
+  - action: utter_allergic_reactions
+  - active_loop: diseases_on_medication_form
+
+- rule: Activate form
+  steps:
+  - intent: allergetic_medicine
+  - action: utter_covid_symptoms
+  - active_loop: allergetic_drugs_form
+
+- rule: Activate form
+  steps:
+  - intent: covid_symptoms
+  - action: utter_duration_of_symptoms
+  - active_loop: covid_symptoms_form
+
+- rule: Activate form
+  steps:
+  - intent: Length_of_symptoms
+  - action: utter_contact_history
+  - active_loop: days_showing_symptoms_form
+
+- rule: Activate form
+  steps:
+  - intent: contact_history
+  - action: utter_family_same_symptoms
+  - active_loop: contact_history_form
+
+- rule: Activate form
+  steps:
+  - intent: family_member_symptoms
+  - action: utter_public_place
+  - active_loop: family_member_form
+
+- rule: Activate form
+  steps:
+  - intent: list_of_events
+  - action: utter_covid_test
+  - active_loop: public_place_visit_form
+
+- rule: Activate form
+  steps:
+  - intent: affirm4
+  - action: utter_test_mode
+  - active_loop: covid_test_form
+
+- rule: Activate form
+  steps:
+  - intent: deny4  
+  - action: utter_consultation
+  - active_loop: covid_test_form_1
+
+- rule: Activate form
+  steps:
+  - intent: mode_of_test
+  - action: utter_test_result
+  - active_loop: test_mode_form
+
+- rule: Activate form
+  steps:
+  - intent: test_result
+  - action: utter_consultation
+  - active_loop: test_result_form
+
+- rule: Activate form
+  steps:
+  - intent: ongoing_medication
+  - action: utter_appointment
+  - active_loop: ongoing_medication_form
+

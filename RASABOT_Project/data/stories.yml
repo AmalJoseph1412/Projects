@@ -1,0 +1,44 @@
+version: "3.1"
+
+stories:
+
+- story: story1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mobile_no
+  - action: utter_covid_vaccination
+  - intent: vaccine_dose
+  - action: utter_diseases_on_medication
+  - intent: diseases_on_medication
+  - action: utter_allergic_reactions
+  - intent: affirm1
+  - action: utter_allergic_reactions_yes
+  - intent: allergetic_medicine
+  - action: utter_covid_symptoms
+  - intent: affirm2
+  - action: utter_covid_symptoms_yes
+  - intent: covid_symptoms
+  - action: utter_duration_of_symptoms
+  - intent: Length_of_symptoms
+  - action: utter_contact_history
+  - intent: contact_history
+  - action: utter_family_same_symptoms
+  - intent: family_member_symptoms
+  - action: utter_public_place
+  - intent: list_of_events
+  - action: utter_covid_test
+  - intent: affirm4
+  - action: utter_test_mode
+  - intent: mode_of_test
+  - action: utter_test_result
+  - intent: test_result
+  - action: utter_consultation
+  - intent: affirm3
+  - action: utter_consultation_yes
+  - intent: ongoing_medication
+  - action: utter_appointment
+  - intent: affirm
+  - action: utter_appointment_yes
+  - intent: good_bye
+  - action: utter_good_bye

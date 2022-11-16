@@ -1,0 +1,422 @@
+version: "3.1"
+
+intents:
+  - greet
+  - good_bye
+  - affirm1
+  - affirm2
+  - affirm3
+  - affirm4
+  - affirm
+  - deny1
+  - deny2
+  - deny3
+  - deny4
+  - deny
+  - mobile_no
+  - user_info
+  - vaccine_dose
+  - diseases_on_medication
+  - specific_disease
+  - allergetic_medicine
+  - covid_symptoms
+  - Length_of_symptoms
+  - contact_history
+  - family_member_symptoms
+  - list_of_events
+  - covid_test
+  - covid_test_1
+  - mode_of_test
+  - test_result
+  - ongoing_medication
+  - chitchat
+
+slots:
+  user_chk:
+    type: any
+    mappings:
+    - type: custom
+      action: checkUser
+  mob_no:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: mob_no
+      action: validate_mob_no_form
+  user_info:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: user_info
+  vaccine_dose:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: vaccine_dose
+  diseases_on_medication:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: diseases_on_medication
+  covid_symptoms:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: covid_symptoms
+  days_showing_symptoms:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: days_showing_symptoms
+  contact_history:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: contact_history
+  family_member:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: family_member
+  public_place_visit:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: public_place_visit
+  covid_test:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: covid_test
+  covid_test_1:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: covid_test_1
+  test_mode:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: test_mode
+  test_result:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: test_result
+  doctor_consulted:
+    type: any
+    mappings:
+    - type: from_text
+  allergetic_drugs:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: allergetic_drugs
+  ongoing_medication:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: ongoing_medication
+
+entities:
+- mob_no
+- user_info
+- vaccine_dose
+- diseases_on_medication
+- covid_symptoms
+- days_showing_symptoms
+- contact_history
+- family_member
+- public_place_visit
+- covid_test
+- covid_test_1
+- test_mode
+- test_result
+- allergetic_drugs
+- ongoing_medication
+- covid_symptoms_yn
+- allergic_diseases
+- doctor_consulted
+- app
+
+actions:
+  - utter_greet
+  - utter_covid_vaccination
+  - utter_user_info
+  - utter_diseases_on_medication
+  - utter_other_disease
+  - utter_allergic_reactions
+  - utter_allergic_reactions_yes
+  - utter_covid_symptoms
+  - utter_covid_symptoms_yes
+  - utter_duration_of_symptoms
+  - utter_contact_history
+  - utter_family_same_symptoms
+  - utter_public_place
+  - utter_covid_test
+  - utter_test_mode
+  - utter_test_result
+  - utter_consultation
+  - utter_consultation_yes
+  - utter_appointment
+  - utter_appointment_yes
+  - utter_appointment_no
+  - utter_good_bye
+  - utter_chitchat
+  - validate_mob_no_form
+  - checkUser
+  - getSlots
+
+
+responses:
+  utter_greet:
+  - text: "Hi, welcome to the chat. Please enter your mobile Number."
+
+  utter_covid_vaccination:
+  - text: "Have you taken any covid vaccination?"
+    buttons:
+      - title: "First Dose"
+        payload: /vaccine_dose{{"vaccine_dose":"First_Dose"}}
+      - title: "Second Dose"
+        payload: /vaccine_dose{{"vaccine_dose":"Second_Dose"}}
+      - title: "Booster Dose"
+        payload: /vaccine_dose{{"vaccine_dose":"Booster_Dose"}}
+      - title: "Not Vaccinated"
+        payload: /vaccine_dose{{"vaccine_dose":"Not_Vaccinated"}}
+      
+  utter_user_info:
+  -  text: "Please enter your name,age and gender. eg:(Amal-20-Male)"
+ 
+  utter_diseases_on_medication:
+  - text: "Are you taking any medications for the following diseases?"
+    buttons:
+      - title: "Diabetes"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Diabetes"}}
+      - title: "Blood Pressure"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Blood Pressure"}}
+      - title: "Lung disease"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Lung disease"}}
+      - title: "Cancer"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Cancer"}}
+      - title: "Kidney disease"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Kidney disease"}}
+      - title: "Liver disease"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Liver disease"}}
+      - title: "Dementia"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Dementia"}}
+      - title: "Heart disease"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Heart disease"}}
+      - title: "Respiratory Diseases"
+        payload: /diseases_on_medication{{"diseases_on_medication":"Respiratory Diseases"}}
+      - title: "Others"
+        payload: /diseases_on_medication{{"diseases_on_medication":"nn"}}
+      
+
+  utter_other_disease:
+  - text: "Please specify the disease."
+ 
+  utter_allergic_reactions:
+  - text: "Do you have allergic reactions to any kind of medicines?"
+    buttons:
+      - title: "Yes"
+        payload: /affirm1{{"allergic_diseases":"Yes"}}
+      - title: "No"
+        payload: /deny1{{"allergic_diseases":"No"}}
+ 
+  utter_allergic_reactions_yes:
+  - text: "Please specify the medicines you are allergic to."
+
+  utter_covid_symptoms:
+  - text: "Do you have any covid related symptoms?"
+    buttons:
+      - title: "Yes"
+        payload: /affirm2{{"covid_symptoms_yn":"Yes"}}
+      - title: "No"
+        payload: /deny2{{"covid_symptoms_yn":"No"}}
+ 
+  utter_covid_symptoms_yes:
+  - text: "Which of the following symptoms do you have?" 
+    buttons:
+      - title: "Headache"
+        payload: /covid_symptoms{{"covid_symptoms":"Headache"}}
+      - title: "Cough"
+        payload: /covid_symptoms{{"covid_symptoms":"Cough"}}
+      - title: "Fever"
+        payload: /covid_symptoms{{"covid_symptoms":"Fever"}}
+      - title: "Sore Throat"
+        payload: /covid_symptoms{{"covid_symptoms":"Sore Throat"}}
+      - title: "Loss of taste and smell"
+        payload: /covid_symptoms{{"covid_symptoms":"Loss of taste and smell"}}
+      - title: "Body pain"
+        payload: /covid_symptoms{{"covid_symptoms":"Body pain"}}
+      - title: "Chest pain"
+        payload: /covid_symptoms{{"covid_symptoms":"Chest pain"}}
+      - title: "Shortness of breath"
+        payload: /covid_symptoms{{"covid_symptoms":"Shortness of breath"}}
+      - title: "Vomiting"
+        payload: /covid_symptoms{{"covid_symptoms":"Vomiting"}}
+      - title: "Tiredness"
+        payload: /covid_symptoms{{"covid_symptoms":"Tiredness"}}
+      - title: "Cold"
+        payload: /covid_symptoms{{"covid_symptoms":"Cold"}}
+      - title: "More than one symptom"
+        payload: /covid_symptoms{{"covid_symptoms":"More"}}
+
+  utter_duration_of_symptoms:
+  - text: "How long do you have these symptoms?"
+    buttons:
+    - title: "1-2 days"
+      payload: /Length_of_symptoms{{"days_showing_symptoms":"1-2 days"}}
+    - title: "2-4 days"
+      payload: /Length_of_symptoms{{"days_showing_symptoms":"2-4 days"}}
+    - title: "4-7 days"
+      payload: /Length_of_symptoms{{"days_showing_symptoms":"4-7 days"}}
+    - title: "More than a week"
+      payload: /Length_of_symptoms{{"days_showing_symptoms":"more than a week"}}
+
+  utter_contact_history:
+  - text: "Do you have any primary/secondary contact with a COVID patient?"
+    buttons:
+    - title: "Primary"
+      payload: /contact_history{{"contact_history":"primary"}}
+    - title: "Secondary"
+      payload: /contact_history{{"contact_history":"secondary"}}
+    - title: "No contact"
+      payload: /contact_history{{"contact_history":"no contact"}}
+
+  utter_family_same_symptoms:
+  - text: "Do you have any person in your family with the same symptoms?"
+    buttons:
+      - title: "Yes"
+        payload: /family_member_symptoms{{"family_member":"Yes"}}
+      - title: "No"
+        payload: /family_member_symptoms{{"family_member":"No"}}
+
+  utter_public_place:
+  - text: "Did you visit any of the following public places/events?"
+    buttons:
+      - title: "Marriage function"
+        payload: /list_of_events{{"public_place_visit":"Marriage function"}}
+      - title: "Railway station"
+        payload: /list_of_events{{"public_place_visit":"Railway station"}}
+      - title: "Bus station"
+        payload: /list_of_events{{"public_place_visit":"Bus station"}}
+      - title: "Airport"
+        payload: /list_of_events{{"public_place_visit":"Airport"}}
+      - title: "Religious centers"
+        payload: /list_of_events{{"public_place_visit":"Religious centers"}}
+      - title: "Metro stations"
+        payload: /list_of_events{{"public_place_visit":"Metro stations"}}
+      - title: "Others"
+        payload: /list_of_events{{"public_place_visit":"Others"}}
+      - title: "No visits"
+        payload: /list_of_events{{"public_place_visit":"No visits"}}
+
+  utter_covid_test:
+  - text: "Have you done any covid test recently?"
+    buttons:
+      - title: "Yes"
+        payload: /affirm4{{"covid_test":"Yes"}}
+      - title: "No"
+        payload: /deny4{{"covid_test_1":"No"}}
+
+  utter_test_mode:
+  - text: "Mode of test?"
+    buttons:
+    - title: "Self Test"
+      payload: /mode_of_test{{"test_mode":"self"}}
+    - title: "Laboratory Test"
+      payload: /mode_of_test{{"test_mode":"lab"}}
+
+  utter_test_result:
+  - text: "What is the test result?"
+    buttons:
+    - title: "Positive"
+      payload: /test_result{{"test_result":"Positive"}}
+    - title: "Negative"
+      payload: /test_result{{"test_result":"Negative"}}
+
+  utter_consultation:
+  - text: "Have you consulted any doctors in the previous days?"
+    buttons:
+    - title: "Yes"
+      payload: /affirm3{{"doctor_consulted":"Yes"}}
+    - title: "No"
+      payload: /deny3{{"doctor_consulted":"No"}}
+
+  utter_consultation_yes:
+  - text: "Which medicine are you currently taking?"
+ 
+  utter_appointment:
+  - text: "Would you like to book an appointment at a hospital?"
+    buttons:
+    - title: "Yes"
+      payload: /affirm{{"app":"Yes"}}
+    - title: "No"
+      payload: /deny{{"app":"No"}}
+
+  utter_appointment_yes:
+  - text: "Please visit https://xyz.com to book an appointment."
+
+  utter_appointment_no:
+  - text: "Thankyou for using chatbot.STAY HOME STAY SAFE."
+
+  utter_good_bye:
+  - text: "Wishing you a great day.STAY HOME STAY SAFE. Thankyou."
+
+  utter_chitchat:
+  - text: " Your answer is out of scope. Please answer according to the question.[If you want to leave the conversation, type 'bye'.]"
+
+forms:
+  mob_no_form:
+    required_slots:
+      - mob_no
+  user_info_form:
+    required_slots:
+      - user_info
+  vaccine_dose_form:
+    required_slots:
+      - vaccine_dose
+  diseases_on_medication_form:
+    required_slots:
+      - diseases_on_medication
+  covid_symptoms_form:
+    required_slots:
+      - covid_symptoms
+  days_showing_symptoms_form:
+    required_slots:
+      - days_showing_symptoms
+  contact_history_form:
+    required_slots:
+      - contact_history
+  family_member_form:
+    required_slots:
+      - family_member
+  public_place_visit_form:
+    required_slots:
+      - public_place_visit
+  covid_test_form:
+    required_slots:
+      - covid_test
+  covid_test_form_1:
+    required_slots:
+      - covid_test_1
+  test_mode_form:
+    required_slots:
+      - test_mode
+  test_result_form:
+    required_slots:
+      - test_result
+  doctor_consulted_form:
+    required_slots:
+      - doctor_consulted
+  allergetic_drugs_form:
+    required_slots:
+      - allergetic_drugs
+  ongoing_medication_form:
+    required_slots:
+      - ongoing_medication
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

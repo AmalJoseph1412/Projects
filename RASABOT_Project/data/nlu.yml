@@ -1,0 +1,259 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello there
+    - hi
+    - hello
+    - good morning
+    - good evening
+    - hey there
+    - good morning
+    - good evening
+    - good afternoon
+
+
+- intent: good_bye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - of course
+    - that sounds good
+    - correct
+    - great
+    - OK
+    - okay
+    - thank you
+    - thanks
+    - yes, thanks
+    - thanks a lot
+    - thank you very much
+    - stop
+    - I want to leave
+    - I wanna leave
+    - I am leaving
+
+- intent: affirm1
+  examples: |
+    - yes
+    - y
+ 
+- intent: deny1
+  examples: |
+    - no
+    - n
+
+- intent: affirm2
+  examples: |
+    - yes
+    - y
+ 
+- intent: deny2
+  examples: |
+    - no
+    - n
+
+
+- intent: affirm3
+  examples: |
+    - yes
+    - y
+ 
+- intent: deny3
+  examples: |
+    - no
+    - n
+  
+- intent: affirm4
+  examples: |
+    - yes
+    - y
+ 
+- intent: deny4
+  examples: |
+    - no
+    - n
+  
+- intent: affirm
+  examples: |
+    - yes
+    - y
+ 
+- intent: deny
+  examples: |
+    - no
+    - n
+
+- intent: mobile_no
+  examples: |
+    - [9564822445](mob_no)
+    - [8456231245](mob_no)
+    - [7589698642](mob_no)
+    - [6547897847](mob_no)
+
+- intent: user_info
+  examples: |
+    - [asha-25-female](user_info)
+    - [ben-45-male](user_info)
+    - [mary-31-transgender](user_info)
+    - [neethu, 46, f](user_info)
+    - [xyz 32 na](user_info)
+
+- intent: vaccine_dose
+  examples: |
+    - [First Dose](vaccine_dose)
+    - [Second Dose](vaccine_dose)
+    - [Booster](vaccine_dose)
+    - [Not vaccinated](vaccine_dose)
+ 
+- intent: diseases_on_medication
+  examples: |
+    - [Diabetics](diseases_on_medication)
+    - [Respiratory disease](diseases_on_medication)
+    - [BP](diseases_on_medication)
+    - [Lung disease](diseases_on_medication)
+    - [Cancer](diseases_on_medication)
+    - [Kidney disease](diseases_on_medication)
+    - [Liver disease](diseases_on_medication)
+    - [Dementia](diseases_on_medication)
+    - [Heart disease](diseases_on_medication)
+    - [Other](diseases_on_medication)
+
+- intent: specific_disease
+  examples: |
+    - [Tuberculosis](diseases_on_medication)
+    - [TB](diseases_on_medication)
+    - [Flu](diseases_on_medication)
+    - [Hepatitis](diseases_on_medication)
+    - [Alzheimer's](diseases_on_medication)
+    - [Chickenpox](diseases_on_medication)
+    - [Diarrhea](diseases_on_medication)
+    - [Heart disease](diseases_on_medication)
+    - [Other](diseases_on_medication)
+
+- intent: allergetic_medicine 
+  examples:  |
+    - [Penicillin](allergetic_drugs)
+    - [amoxicillin](allergetic_drugs)
+    - [ampicillin](allergetic_drugs)
+    - [tetracycline](allergetic_drugs)
+    - [ibuprofen](allergetic_drugs)
+    - [aspirin](allergetic_drugs)
+    - [naproxen](allergetic_drugs)
+    - [sulfa drugs](allergetic_drugs)
+    - [chemotherapy drugs](allergetic_drugs)
+    - [cetuximab](allergetic_drugs)
+    - [erbitux](allergetic_drugs)
+    - [rituximab](allergetic_drugs)
+    - [HIV drugs](allergetic_drugs) 
+    - [abacavir](allergetic_drugs) 
+    - [nevirapine](allergetic_drugs)
+    - [Insulin](allergetic_drugs)
+    - [antiseizure drugs](allergetic_drugs)
+    - [carbamazepine](allergetic_drugs)
+    - [tegretol](allergetic_drugs) 
+    - [lamotrigine](allergetic_drugs) 
+    - [lamictal](allergetic_drugs)
+    - [phenytoin](allergetic_drugs)
+    - [Muscle relaxers](allergetic_drugs)
+    - [atracurium](allergetic_drugs)
+    - [succinylcholine](allergetic_drugs)
+    - [vecuronium](allergetic_drugs)
+
+- intent: covid_symptoms
+  examples: |
+    - [Headache](covid_symptoms)  
+    - [Cough](covid_symptoms) 
+    - [Fever](covid_symptoms) 
+    - [Cold](covid_symptoms) 
+    - [Sore Throat](covid_symptoms) 
+    - [Loss of taste and smell](covid_symptoms) 
+    - [Body pain](covid_symptoms) 
+    - [Chest pain](covid_symptoms) 
+    - [Shortness of breath](covid_symptoms) 
+    - [Vomiting](covid_symptoms) 
+    - [Tiredness](covid_symptoms) 
+    - [More than one symptom](covid_symptoms) 
+
+- intent: Length_of_symptoms
+  examples:  |
+    - [1-2 days](days_showing_symptoms)
+    - [2-4 days](days_showing_symptoms)
+    - [4-7 days](days_showing_symptoms)
+    - [more than 1 week](days_showing_symptoms)
+
+- intent: contact_history
+  examples:  |
+    - [primary](contact_history)
+    - [secondary](contact_history)
+    - [none of these](contact_history)
+
+- intent: family_member_symptoms 
+  examples:  |
+    - [Yes](family_member)
+    - [No](family_member)
+
+- intent: list_of_events
+  examples:  |
+    - [Meetings](public_place_visit)
+    - [marriage function](public_place_visit)
+    - [Birthday party](public_place_visit)
+    - [Receptions](public_place_visit)
+    - [Farewell Party](public_place_visit)
+    - [Railway station](public_place_visit)
+    - [Bus station](public_place_visit)
+    - [Airport](public_place_visit)
+    - [Religious centers](public_place_visit)
+    - [Metro stations](public_place_visit)
+    - [Others](public_place_visit)
+    - [None](public_place_visit)
+
+- intent: covid_test
+  examples:  |
+    - [Yes](covid_test)
+    - [No](covid_test)
+    
+- intent: mode_of_test
+  examples:  |
+    - [self](test_mode)
+    - [Laboratory](test_mode)
+    
+- intent: test_result
+  examples:  |
+    - [positive](test_result)
+    - [Negative](test_result)
+
+- intent: ongoing_medication
+  examples:  |
+    - [Azithromizine](ongoing_medication)
+    - [dolo](ongoing_medication)
+    - [vitamins](ongoing_medication)
+    - [probiotics](ongoing_medication)
+    - [ibuprofen](ongoing_medication)
+    - [aspirin](ongoing_medication)
+    - [antibiotics](ongoing_medication)
+    - [paracetamol](ongoing_medication)
+
+- intent: chitchat
+  examples: |
+    - I don't know
+    - not sure
+    - what
+    - oh no
+    - may be
+    - something else
+    - don't remember
+    - i don't understand
+    - should I
+    - whats up
+    - what is this
